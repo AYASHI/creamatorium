@@ -3,12 +3,15 @@ import { Text, StyleSheet } from 'react-native';
 interface IProps {
     text: string;
     color?: string;
+    bold?: boolean;
+    fontSize? : number
 }
 const Label = (props: IProps) => {
     const styles = StyleSheet.create({
         text: {
-            fontFamily: 'DroidArabicKufi',
-            color: props.color
+            fontSize: props.fontSize,
+            fontFamily: props.bold ? 'DroidArabicKufi-Bold' :'DroidArabicKufi',
+            color: props.color || '#54585a',
         }
     })
     return (

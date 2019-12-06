@@ -1,7 +1,6 @@
 enum Screens  {
-    Login = 'Login',
-    Home = 'Home',
-    Details = 'Details'
+    NewOrder = 'NewOrder',
+    OrdersList = 'OrdersList'
 }
 
 export default Screens;

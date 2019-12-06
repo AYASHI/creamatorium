@@ -3,12 +3,17 @@ import { Text, TouchableOpacity, StyleSheet } from 'react-native'
 import Label from './Label';
 interface IProps {
     onPress: ()=>void,
-    title: string
+    title: string,
+    enabled?: boolean,
+    color?: string 
 }
 
 const Button = (props: IProps) => {
+    const onPress =() => {
+        if (props.enabled) {props.onPress()}
+    }
     return (
-        <TouchableOpacity onPress={props.onPress} style= {styles.container}>
+        <TouchableOpacity onPress={onPress} style= {[styles.container, {backgroundColor: props.color  || '#00CCBB' }]}>
             <Label text={props.title} color={'white'}/>
         </TouchableOpacity>
     )
@@ -17,8 +22,7 @@ const Button = (props: IProps) => {
 const styles = StyleSheet.create({
     container: {
         height: 44,
-        width: 150,
-        backgroundColor: '#3766A3',
+        width: 250,
         justifyContent:'center',
         alignItems: 'center',
         paddingStart: 16,
